@@ -1,0 +1,38 @@
+[
+  {"id": 1,
+   "name": "Muscle Monsters.",
+   "price": "400",
+   "description": "If you’ve been around fitness, flipped through a bodybuilding magazine, even stepped foot into a drug store, you kno...…",
+   "img": "https://img.freepik.com/free-photo/young-fitness-man-studio_7502-5004.jpg?size=626&ext=jpg&ga=GA1.2.142737712.1632825724"
+  },
+  {"id": 2,
+   "name": "Dumbbells",
+   "price": "500",
+   "description": "Blowing up your back muscles takes work, and one of the simplest, best, and most popular exercises to get it done are dumbbell rows.",
+   "img": "https://img.freepik.com/free-photo/athletic-man-woman-with-dumbbells_155003-11801.jpg?size=626&ext=jpg&ga=GA1.2.142737712.1632825724"
+  },
+  {"id": 3,
+   "name": "Lunges",
+   "price": "500",
+   "description": "The lunge is a popular leg-strengthening exercise with a multitude of variations to add variety to your workout. In addition, varying your technique allows you to emphasize different muscles or parts of those muscles.",
+   "img": "https://img.freepik.com/free-photo/young-ordinary-man-go-sport-home-hardworking-freshman-sit-mat-abs-excercise-easy-start-workout-alone-apatment-beginner-action-sport-equipment-floor_186523-1196.jpg?size=626&ext=jpg&ga=GA1.2.142737712.1632825724"
+  },
+  {"id": 4,
+   "name": "Single-leg deadlifts.",
+   "price": "450",
+   "description": "The single-leg deadlift is a valuable addition to your training routine that can help build hamstring and overall posterior chain strength, but are you sure you're even doing the exercise",
+   "img": "https://img.freepik.com/free-photo/young-woman-doing-climbers-looking-concentrated-her-bodyweight-fitness-concept_197531-30214.jpg?size=626&ext=jpg&ga=GA1.2.142737712.1632825724"
+  },
+  {"id": 5,
+   "name": "Burpees.",
+   "price": "300",
+   "description": " burpees are a challenging exercise that work many of the major muscle groups in your body.",
+   "img": "https://img.freepik.com/free-photo/full-shot-fit-people-training-together_23-2149326121.jpg?size=626&ext=jpg&ga=GA1.2.142737712.1632825724"
+  },
+  {"id": 6,
+   "name": "Side planks.",
+   "price": "400",
+   "description": "Few moves are as good for your midsection as the side plank, yet despite this, it’s often overlooked in favour of the standard face-down, forearm supported,",
+   "img": "https://img.freepik.com/free-photo/muscular-man-doing-push-ups-one-hand_7502-4775.jpg?size=626&ext=jpg&ga=GA1.1.142737712.1632825724"
+  }
+]
