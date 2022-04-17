@@ -19,14 +19,11 @@ const Login = () => {
   }
   return (
     <div className='container mx-auto w-50'>
-      <h1 className='text-center mt-5'>Please Login</h1>
+      <h2 className='text-center mt-5'>Please Login</h2>
       <Form onSubmit={handleSubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
     <Form.Control ref={emailRef} type="email" placeholder="Enter email" required/>
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -40,7 +37,7 @@ const Login = () => {
     Submit
   </Button>
 </Form>
-<p className='mt-4'>Already have an account? <Link to="/login" className='text-primary pe-auto text-decoration-none' onClick={navigateRegister}>Please Login</Link></p>
+<p className='mt-4'>New to Fitness Gym? <Link to="/register" className='text-primary pe-auto text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
     </div>
   );
 };

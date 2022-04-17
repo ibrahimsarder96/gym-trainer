@@ -1,9 +1,35 @@
-import React from 'react';
+import { Form } from 'react-bootstrap';
+import  './Register.css'
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const Register = () => {
+  const navigate = useNavigate();
+  const handleRegisterSubmit = async (event) =>{
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+  }
+  const navigateLogin = () =>{
+    navigate('/login')
+  }
   return (
-    <div>
-      <h2>Please Register</h2>
+      <div className='register-form'>
+      <h2 style={{textAlign: 'center', marginTop:'20px'}}>Please Register</h2>
+      <Form onSubmit={handleRegisterSubmit}>
+        <input type="text" name="name" id="" placeholder='Your Name'/>
+        <input type="email" name="email" id="" placeholder='Email' required/>
+        <input type="password" name="password" id="" placeholder='Password' required/>
+        <input  type="checkbox" name="terms" id="terms" />
+        <label  htmlFor='terms'>Accept Genius Car Terms and Conditions</label>
+        <input 
+        className='bg-primary text-white mx-auto w-50 rounded mt-2' 
+        type="submit" 
+        value="Register" />
+      </Form>
+      
+      <p className='mt-4'>Already have an account? <Link to="/login" className='text-primary pe-auto text-decoration-none' onClick={navigateLogin}>Please Login</Link></p>
     </div>
   );
 };
