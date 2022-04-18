@@ -3,7 +3,6 @@ import './App.css';
 import Home from './Pages/Home/Home/Home';
 import About from './Pages/About/About';
 import Header from './Pages/Shared/Header/Header';
-import Footer from './Pages/Shared/Footer/Footer';
 import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import Blogs from './Pages/Blogs/Blogs';
@@ -31,7 +30,6 @@ function App() {
       }></Route>
       <Route path='*' element={<NotFound></NotFound>}></Route>
     </Routes>
-    <Footer></Footer>
     </div>
   );
 }

@@ -3,7 +3,10 @@ import { Button, Form } from 'react-bootstrap';
 import {useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 import SocialLogin from './SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -37,19 +40,22 @@ const Login = () => {
     navigate('/register')
   }
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  if(loading || sending){
+    return <Loading></Loading>
+  }
   const resetPassword = async() =>{
     const email = emailRef.current.value;
-    // if(email){
-    // //   await sendPasswordResetEmail(email);
-    // //   toast('Sent email');
-    // // }
-    // // else{
-    // //   toast('please enter your email address')
-    //  }
+    if(email){
+      await sendPasswordResetEmail(email);
+      toast('Sent email');
+    }
+    else{
+      toast('please enter your email address')
+     }
   }
   return (
     <div className='container mx-auto w-50'>
-      <h2 className='text-center mt-5'>Please Login</h2>
+      <h2 className='text-center text-primary mt-5'>Please Login</h2>
       <Form onSubmit={handleSubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
   
@@ -71,6 +77,7 @@ const Login = () => {
 <p className='mt-4'>New to Fitness Gym? <Link to="/register" className='text-primary pe-auto text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
 <p className='mt-4'>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button></p>
 <SocialLogin></SocialLogin>
+<ToastContainer />
     </div>
   );
 };

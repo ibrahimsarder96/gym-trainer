@@ -6,6 +6,9 @@ import { Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { async } from '@firebase/util';
 import { updateProfile } from 'firebase/auth';
+import Loading from '../Shared/Loading/Loading';
+import SocialLogin from '../Login/SocialLogin/SocialLogin';
+
 
 const Register = () => {
   const [agree, setAgree] = useState(false)
@@ -29,8 +32,9 @@ const Register = () => {
       alert('Updated profile');
       navigate('/home');
     }
-    
-    console.log(email, password)
+  }
+  if(loading || updating){
+    return <Loading></Loading>
   }
   if(user){
     navigate('/home')
@@ -41,7 +45,7 @@ const Register = () => {
   
   return (
       <div className='register-form'>
-      <h2 style={{textAlign: 'center', marginTop:'20px'}}>Please Register</h2>
+      <h2 style={{textAlign: 'center', marginTop:'20px'}} className="text-primary">Please Register</h2>
       <Form onSubmit={handleRegisterSubmit}>
         <input type="text" name="name" id="" placeholder='Your Name'/>
         <input type="email" name="email" id="" placeholder='Email' required/>
@@ -55,6 +59,7 @@ const Register = () => {
       </Form>
       
       <p className='mt-4'>Already have an account? <Link to="/login" className='text-primary pe-auto text-decoration-none' onClick={navigateLogin}>Please Login</Link></p>
+    <SocialLogin></SocialLogin>
     </div>
   );
 };
