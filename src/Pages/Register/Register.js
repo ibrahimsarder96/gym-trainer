@@ -1,24 +1,35 @@
 import  './Register.css'
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import { Form } from 'react-bootstrap';
+import { useState } from 'react';
+import { async } from '@firebase/util';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
+  const [agree, setAgree] = useState(false)
   const [
     createUserWithEmailAndPassword,
     user,
     loading,
     error,
-  ] = useCreateUserWithEmailAndPassword(auth);
+  ] = useCreateUserWithEmailAndPassword(auth,  {sendEmailVerification: true});
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
   
-  const handleRegisterSubmit = (event) =>{
+  const handleRegisterSubmit =async (event) =>{
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    createUserWithEmailAndPassword(email,password)
+    if(agree){
+      createUserWithEmailAndPassword(email, password)
+      await updateProfile({ displayName: name});
+      alert('Updated profile');
+      navigate('/home');
+    }
+    
     console.log(email, password)
   }
   if(user){
@@ -35,8 +46,8 @@ const Register = () => {
         <input type="text" name="name" id="" placeholder='Your Name'/>
         <input type="email" name="email" id="" placeholder='Email' required/>
         <input type="password" name="password" id="" placeholder='Password' required/>
-        <input  type="checkbox" name="terms" id="terms" />
-        <label  htmlFor='terms'>Accept Genius Car Terms and Conditions</label>
+        <input onClick={() =>setAgree(!agree)}  type="checkbox" name="terms" id="terms" />
+        <label className={`ps-2 ${agree? "": "text-danger"}`} htmlFor='terms'>Accept Dynamo Gym Terms and Conditions</label>
         <input 
         className='bg-primary text-white mx-auto w-50 rounded mt-2' 
         type="submit" 
