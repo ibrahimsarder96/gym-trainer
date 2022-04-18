@@ -1,4 +1,17 @@
-# Getting Started with Create React App
+# Dynamo Fitness
+
+Live-website[link]().
+
+-Home page
+-services
+-blogs
+-about
+-Login verify
+
+Technology use:
+-react router-hook
+-react toastify
+-react router
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
