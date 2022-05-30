@@ -7,6 +7,7 @@ Live-website[link](https://gym-website-2e934.web.app/).
 - Blogs
 - About
 - Login verify
+- Login page
 
 Technology use:
 - react router-hook
